@@ -218,7 +218,7 @@ survcox_cv <- function(df,
                        repeat_cv = 2,
                        randomseed = NaN,
                        return_models = FALSE,
-                       inner_cv = 3,
+                       inner_cv = 5,
                        useCoxLasso = FALSE,
                        suppresswarn = TRUE) {
   Call <- match.call()
