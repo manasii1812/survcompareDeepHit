@@ -88,6 +88,8 @@ survcoxlasso_train <- function(df_train,
       alpha = 1,
       maxit = 2000
     )
+    print("lambda min: ")
+    print(cv10$lambda.min)
     new.predictors <-
       rownames(coef(cv10, s = "lambda.min"))[as.matrix(coef(cv10, s = "lambda.min")) != 0]
     print("new preds: ")
