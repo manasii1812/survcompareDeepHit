@@ -90,6 +90,8 @@ survcoxlasso_train <- function(df_train,
     )
     new.predictors <-
       rownames(coef(cv10, s = "lambda.min"))[as.matrix(coef(cv10, s = "lambda.min")) != 0]
+    print("new preds: ")
+    print(new.predictors)
 
     if (length(new.predictors) == 0) {
       print("we are not using lasso")
@@ -120,6 +122,8 @@ survcoxlasso_train <- function(df_train,
         ))
       cox.m <- survival::coxph(f, data = df_train, x = TRUE)
       temp<- as.numeric(coef(cv10, s = "lambda.min"))
+      print("temp: ")
+      print(temp)
       names(temp) = predict.factors
       cox.m$coefficients <- temp
     }
