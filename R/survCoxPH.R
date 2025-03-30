@@ -92,6 +92,7 @@ survcoxlasso_train <- function(df_train,
       rownames(coef(cv10, s = "lambda.min"))[as.matrix(coef(cv10, s = "lambda.min")) != 0]
 
     if (length(new.predictors) == 0) {
+      print("we are not using lasso")
       if (verbose) {print("Warning: No predictors are left in lasso.")}
       cox.m <-
         survival::coxph(
