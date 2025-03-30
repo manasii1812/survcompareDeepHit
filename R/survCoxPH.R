@@ -124,10 +124,10 @@ survcoxlasso_train <- function(df_train,
         ))
       cox.m <- survival::coxph(f, data = df_train, x = TRUE)
       temp<- as.numeric(coef(cv10, s = "lambda.min"))
-      print("temp: ")
-      print(temp)
+      lambda <- cv10$lambda.min
       names(temp) = predict.factors
       cox.m$coefficients <- temp
+      cox.m$lambda <- lambda
     }
   },
   silent = TRUE)
